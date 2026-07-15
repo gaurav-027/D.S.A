@@ -86,9 +86,29 @@ int printingSubarrays(int *arr, int n){
     return 0;
 }
 
+//Printing MaxSum of Subarrays of an Array
+int maxSumSubarrays(int *arr, int n){
+    int sum=0,maxSum=INT_MIN;
+    for(int start=0;start<n;start++){
+        for(int end=start;end<n;end++){
+            for(int i=start;i<=end;i++){
+                cout<<arr[i];
+                sum = sum + arr[i];
+            }
+            cout<<"="<<sum<<" ";
+            maxSum=max(maxSum,sum);
+            sum = 0;
+        }
+        cout<<endl;
+    }
+    cout<<maxSum;
+    return 0;
+}
+
+
+
 int main(){
     int arr[]={1,2,3,4,5};
     int n=sizeof(arr) / sizeof(int);
-    printingSubarrays(arr,n);
     return 0;
 }
